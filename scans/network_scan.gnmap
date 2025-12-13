@@ -1,0 +1,10 @@
+# Nmap 7.94SVN scan initiated Wed Jan 22 21:49:24 2025 as: /usr/lib/nmap/nmap --privileged -A -oA network_scan 192.168.204.128/24
+Host: 192.168.204.1 ()	Status: Up
+Host: 192.168.204.1 ()	Ports: 80/open/tcp//http//Microsoft IIS httpd 10.0/	Ignored State: filtered (999)	Seq Index: 257	IP ID Seq: Incremental
+Host: 192.168.204.2 ()	Status: Up
+Host: 192.168.204.2 ()	Ports: 53/open/tcp//domain//(generic dns response: NOTIMP)/	Ignored State: closed (999)	Seq Index: 257	IP ID Seq: Incremental
+Host: 192.168.204.254 ()	Status: Up
+Host: 192.168.204.254 ()	Ports: 	Ignored State: filtered (1000)
+Host: 192.168.204.128 ()	Status: Up
+Host: 192.168.204.128 ()	Ports: 	Ignored State: closed (1000)
+# Nmap done at Wed Jan 22 21:49:54 2025 -- 256 IP addresses (4 hosts up) scanned in 30.39 seconds

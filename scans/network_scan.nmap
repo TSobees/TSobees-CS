@@ -1,0 +1,73 @@
+# Nmap 7.94SVN scan initiated Wed Jan 22 21:49:24 2025 as: /usr/lib/nmap/nmap --privileged -A -oA network_scan 192.168.204.128/24
+Nmap scan report for 192.168.204.1
+Host is up (0.0013s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Microsoft IIS httpd 10.0
+|_http-title: Site doesn't have a title.
+|_http-server-header: Microsoft-IIS/10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+MAC Address: 00:50:56:C0:00:08 (VMware)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 11|10 (92%), FreeBSD 6.X (88%)
+OS CPE: cpe:/o:freebsd:freebsd:6.2 cpe:/o:microsoft:windows_10
+Aggressive OS guesses: Microsoft Windows 11 21H2 (92%), FreeBSD 6.2-RELEASE (88%), Microsoft Windows 10 (87%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.34 ms 192.168.204.1
+
+Nmap scan report for 192.168.204.2
+Host is up (0.00065s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+53/tcp open  domain  (generic dns response: NOTIMP)
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|     bind
+|     root-servers
+|     nstld
+|_    verisign-grs
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.94SVN%I=7%D=1/22%Time=679159E2%P=x86_64-pc-linux-gnu%r(D
+SF:NSVersionBindReqTCP,6B,"\0i\0\x06\x81\x83\0\x01\0\0\0\x01\0\0\x07versio
+SF:n\x04bind\0\0\x10\0\x01\0\0\x06\0\x01\0\0\x0e\x10\0@\x01a\x0croot-serve
+SF:rs\x03net\0\x05nstld\x0cverisign-grs\x03com\0x\xb3;\xe9\0\0\x07\x08\0\0
+SF:\x03\x84\0\t:\x80\0\x01Q\x80")%r(DNSStatusRequestTCP,E,"\0\x0c\0\0\x90\
+SF:x04\0\0\0\0\0\0\0\0");
+MAC Address: 00:50:56:F8:23:D1 (VMware)
+Aggressive OS guesses: VMware Player virtual NAT device (98%), Microsoft Windows XP SP3 or Windows 7 or Windows Server 2012 (93%), DD-WRT v24-sp2 (Linux 2.4.37) (91%), Microsoft Windows XP SP3 (91%), Actiontec MI424WR-GEN3I WAP (91%), Linux 3.2 (90%), DVTel DVT-9540DW network camera (89%), BlueArc Titan 2100 NAS device (88%), Linux 4.4 (88%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.65 ms 192.168.204.2
+
+Nmap scan report for 192.168.204.254
+Host is up (0.000092s latency).
+All 1000 scanned ports on 192.168.204.254 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 00:50:56:F8:7D:87 (VMware)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.09 ms 192.168.204.254
+
+Nmap scan report for 192.168.204.128
+Host is up (0.000032s latency).
+All 1000 scanned ports on 192.168.204.128 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jan 22 21:49:54 2025 -- 256 IP addresses (4 hosts up) scanned in 30.39 seconds
