@@ -30,12 +30,11 @@ This project documents a network security assessment performed using **Nmap 7.94
 nmap -sn 192.168.204.128/24
 Service & Port Scanning
 bash
-Copy code
 nmap -sS -sV 192.168.204.128/24
 Aggressive Scan
 bash
-Copy code
 nmap -A -oA network_scan 192.168.204.128/24
+```
 ## 📄 Findings Summary
 4 live hosts discovered
 
