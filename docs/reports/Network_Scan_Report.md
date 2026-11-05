@@ -1,3 +1,5 @@
+> Historical report retained from the original project. Some methodology commands below are illustrative and use a different subnet. Recorded scope and results are in [the XML evidence](../../data/scans/network_scan.xml). OS detections are guesses; this report does not demonstrate exploitation or current network state.
+
 # Network Scan Report
 
 ## Introduction

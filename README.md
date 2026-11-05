@@ -1,85 +1,58 @@
-# Nmap Network Security Assessment
+# Nmap Network Inventory and Assessment
 
-## 📌 Project Overview
-This project documents a network security assessment performed using **Nmap 7.94SVN** on a private lab network. The goal was to identify live hosts, open ports, running services, and potential security risks.
+[![Project checks](https://github.com/TSobees/TSobees-CS/actions/workflows/checks.yml/badge.svg)](https://github.com/TSobees/TSobees-CS/actions/workflows/checks.yml)
 
-> ⚠️ This scan was conducted in a controlled lab environment on a private IP range (192.168.x.x).
+An educational network-assessment record with a reusable **offline XML reporting
+tool**. The tool reads saved Nmap output; it does not run a scanner or contact hosts.
 
----
+## Generate an inventory
 
-## 🛠 Tools Used
-- Nmap 7.94SVN
-- Linux (Kali Linux)
-- VMware virtual network
+Python 3.12 or 3.13, no pip dependencies:
 
----
-
-## 🎯 Objectives
-- Discover live hosts
-- Identify open ports and services
-- Detect operating systems
-- Highlight potential security misconfigurations
-- Provide security recommendations
-
----
-
-## 🧪 Methodology
-
-### Host Discovery
-```bash
-nmap -sn 192.168.204.128/24
-Service & Port Scanning
-bash
-nmap -sS -sV 192.168.204.128/24
-Aggressive Scan
-bash
-nmap -A -oA network_scan 192.168.204.128/24
+```sh
+python -m network_report
+python -m network_report path/to/scan.xml --output-dir outputs/review
 ```
-## 📄 Findings Summary
-4 live hosts discovered
 
-HTTP service detected with risky TRACE method enabled
+The output directory receives `inventory.md`, `inventory.csv` and `summary.json`.
+The bundled scan contains four up hosts and two individually listed open TCP ports.
+JSON retains script results, omitted-port aggregates and OS guesses for review.
 
-DNS service detected with unrecognized response
+## Layout
 
-Firewall filtering observed on multiple hosts
+```text
+network_report/                 Offline parser and command-line report writer
+data/scans/                     Original .xml, .nmap and .gnmap evidence
+docs/reports/                   Original narrative assessment
+docs/images/                    Original screenshots
+docs/licensing/                 Preserved earlier license notice
+tests/                         Bundled evidence and invalid-input checks
+outputs/                       Generated reports, ignored by Git
+```
 
-Detailed findings are available in the full report.
+The previous `scans/`, `report/` and `screenshots/` folders now live under the paths
+above. Original evidence is retained. Read the [assessment](docs/reports/Network_Scan_Report.md)
+alongside [raw output](data/scans/network_scan.nmap).
 
-## 📊 Report
-📁 report/Network_Scan_Report.md
+## Findings and limits
 
-## 🔐 Ethical Disclaimer
-This project was conducted strictly for educational purposes in a lab environment. No unauthorized networks were scanned.
+The saved January 2025 scan reports IIS on TCP 80, DNS on TCP 53, a TRACE method
+observation, and hosts with filtered or closed ports. OS identifications are
+inconclusive guesses under imperfect scan conditions. DNS NOTIMP responses and
+unrecognized service fingerprints need investigation; they do not by themselves
+establish a vulnerability. These are historical observations, not current host status.
 
-## Findings
-Host: 192.168.204.1
+The original report mixes example `192.168.1.0/24` commands with recorded
+`192.168.204.128/24` scope. Treat the raw XML as the source for this scan; those
+examples are not additional assessments. Only scan systems within an explicitly
+authorized scope. The supplied reporting command needs neither root nor Nmap.
 
-Status: Up
+## Tests and references
 
-Port 80/tcp: Open
+```sh
+python -m unittest discover -s tests -v
+```
 
-Service: HTTP (Microsoft IIS 10.0)
-
-Risk: TRACE method enabled
-
-Host: 192.168.204.2
-
-Port 53/tcp: Open
-
-Service: DNS (Unrecognized response)
-
-...
-
-## Recommendations
-
-Disable TRACE on IIS
-
-Harden DNS configurations
-
-Review firewall rules
-
-## Conclusion
-
-The assessment identified security gaps that should be addressed to improve network posture.
-
+[Nmap XML documentation](https://nmap.org/book/output-formats-xml-output.html).
+MIT license; existing notices are retained. Author: Sobanjo Oluwatosin.
+AI assisted the offline tooling, evidence clarification, organization and tests.
